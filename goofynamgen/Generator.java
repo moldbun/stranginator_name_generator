@@ -1,5 +1,8 @@
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Generator {
   private String userName;
@@ -12,54 +15,86 @@ public class Generator {
     else {
       userName = userNameInput;
     }
+    
+    int finalNameIndex = userName.length() - 1;
+    System.out.println(userName.charAt(finalNameIndex));
   }
-
+  
   public void getName() { //Accessor
     System.out.println(userName);
   }
 
-  public void createFirstName() {
+  public void createFirstName() throws IOException {
+	FileInputStream fileByteStream = null;
+	Scanner inFS = null;
     Random randGen = new Random();
+    
     ArrayList<String> fNameP1 = new ArrayList<String>();
-    fNameP1.add("acious");
-    fNameP1.add("cious");
-    fNameP1.add("bol");
-    fNameP1.add("queebli");
-    fNameP1.add("infi");
-    fNameP1.add("icious");
-    fNameP1.add("indleton");
-    
     ArrayList<String> fNameP2 = new ArrayList<String>();
-    fNameP2.add("ton");
-    fNameP2.add("bolbon");
-    fNameP2.add("bin");
-    fNameP2.add("ron");
-    fNameP2.add("bon");
-    
     ArrayList<String> lNameP1 = new ArrayList<String>();
-    lNameP1.add("Mc");
-    lNameP1.add("Trunk");
-    lNameP1.add("Crack");
-    lNameP1.add("Bum");
-    lNameP1.add("Pickle");
-    lNameP1.add("Apple");
-    lNameP1.add("Stinkle");
-    
     ArrayList<String> lNameP2 = new ArrayList<String>();
-    lNameP2.add("fart");
-    lNameP2.add("bum");
-    lNameP2.add("shart");
-    lNameP2.add("dunk");
-    lNameP2.add("clam");
-    lNameP2.add("back");
-    
     ArrayList<String> titles = new ArrayList<String>();
-    titles.add("Wise");
-    titles.add("Old");
-    titles.add("Smelly");
-    titles.add("Wide");
-    titles.add("Lard");
 
+    //Open file fNameP1.txt
+    fileByteStream = new FileInputStream("fNameP1.txt");
+    inFS = new Scanner(fileByteStream);
+    //Add names to arrayList.
+    do {
+    	String inputName = inFS.nextLine();
+    	fNameP1.add(inputName);
+    } while(inFS.hasNextLine());
+    
+    fileByteStream.close(); 
+    inFS.close();
+    
+    //Open file fNameP2.txt
+    fileByteStream = new FileInputStream("fNameP2.txt");
+    inFS = new Scanner(fileByteStream);
+    //Add names to arrayList.
+    do {
+    	String inputName = inFS.nextLine();
+    	fNameP2.add(inputName);
+    } while(inFS.hasNextLine());
+    
+    fileByteStream.close(); 
+    inFS.close();
+    
+    //Open file lNameP1.txt
+    fileByteStream = new FileInputStream("lNameP1.txt");
+    inFS = new Scanner(fileByteStream);
+    //Add names to arrayList.
+    do {
+    	String inputName = inFS.nextLine();
+    	lNameP1.add(inputName);
+    } while(inFS.hasNextLine());
+    
+    fileByteStream.close(); 
+    inFS.close();
+    
+    //Open file lNameP2.txt
+    fileByteStream = new FileInputStream("lNameP2.txt");
+    inFS = new Scanner(fileByteStream);
+    //Add names to arrayList.
+    do {
+    	String inputName = inFS.nextLine();
+    	lNameP2.add(inputName);
+    } while(inFS.hasNextLine());
+    
+    fileByteStream.close(); 
+    inFS.close();
+    
+    //Open file titles.txt
+    fileByteStream = new FileInputStream("titles.txt");
+    inFS = new Scanner(fileByteStream);
+    //Add names to arrayList.
+    do {
+    	String inputName = inFS.nextLine();
+    	titles.add(inputName);
+    } while(inFS.hasNextLine());
+ 
+    fileByteStream.close(); 
+    inFS.close();
+    
     String newFirstName = userName;
     String lastName = "";
 
@@ -87,10 +122,6 @@ public class Generator {
     else {
     	System.out.println(newFirstName + " " + lastName);	
     }
-  }
-
-  public void createMiddleName() {
-
   }
 }
 

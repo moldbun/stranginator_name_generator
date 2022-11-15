@@ -1,7 +1,9 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-  public static void main (String[] args) {
+	
+  public static void main (String[] args) throws IOException {
     Scanner scnr = new Scanner(System.in);
     Generator uInput = new Generator();
 
@@ -15,7 +17,7 @@ public class Main {
     while(progLoop == true) {
       System.out.print("Please enter your name:");
 
-      userInput = scnr.nextLine();
+      userInput = scnr.next();
 
       uInput.setName(userInput);
       uInput.createFirstName();
