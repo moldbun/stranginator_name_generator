@@ -3,8 +3,7 @@ Created by moldbun
 
 *****************
 
-Welcome to the Stranginator Name Generator. This program has the simple objective of
-taking in a name, and making it strange.
+This program has the simple objective of taking in a name, and making it strange.
 
 As the program is currently in alpha, bugs are highly likely. While there are
 currently thousands of possible combinations for unique names, the generator
